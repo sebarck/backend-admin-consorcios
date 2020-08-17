@@ -9,8 +9,11 @@ public class Reclamo {
     private String categoria;
     private String titulo;
     private String descripcion;
+    private String estado;
     private Consorcio consorcio;
-    private Consorcista consorcista;
+    private Viviente viviente;
+    private Propietario propietario;
+    private Inspector inspector;
     private Date fechaCreacion;
     private Date fechaUltCreacion;
 
@@ -46,6 +49,14 @@ public class Reclamo {
         this.descripcion = descripcion;
     }
 
+    public String getEstado() {
+        return estado;
+    }
+
+    public void setEstado(String estado) {
+        this.estado = estado;
+    }
+
     public Consorcio getConsorcio() {
         return consorcio;
     }
@@ -54,12 +65,28 @@ public class Reclamo {
         this.consorcio = consorcio;
     }
 
-    public Consorcista getConsorcista() {
-        return consorcista;
+    public Viviente getViviente() {
+        return viviente;
     }
 
-    public void setConsorcista(Consorcista consorcista) {
-        this.consorcista = consorcista;
+    public void setViviente(Viviente viviente) {
+        this.viviente = viviente;
+    }
+
+    public Propietario getPropietario() {
+        return propietario;
+    }
+
+    public void setPropietario(Propietario propietario) {
+        this.propietario = propietario;
+    }
+
+    public Inspector getInspector() {
+        return inspector;
+    }
+
+    public void setInspector(Inspector inspector) {
+        this.inspector = inspector;
     }
 
     public Date getFechaCreacion() {
