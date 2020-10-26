@@ -1,10 +1,15 @@
 package ar.edu.uade.grupo1.backendadminconsorcios.models;
 
-import org.bson.types.ObjectId;
-import org.springframework.data.annotation.Id;
+import javax.persistence.*;
 import java.util.List;
 
+@Entity
+@Table(name = "propietarios")
 public class Propietario extends Persona {
-    private ObjectId idPropietario;
+
+    @OneToMany(mappedBy = "propietario", cascade = CascadeType.ALL)
     private List<Propiedad> propiedades;
+
+    @OneToMany(mappedBy = "propietario", cascade = CascadeType.ALL)
+    private List<Reclamo> reclamos;
 }

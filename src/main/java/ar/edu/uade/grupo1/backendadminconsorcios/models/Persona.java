@@ -1,30 +1,49 @@
 package ar.edu.uade.grupo1.backendadminconsorcios.models;
 
-import org.bson.types.ObjectId;
-import org.springframework.data.annotation.Id;
+import javax.persistence.*;
+import java.time.LocalDate;
 
-import java.time.LocalDateTime;
-
+@MappedSuperclass
 public class Persona {
-    @Id
-    private ObjectId _id;
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id", unique = true)
+    private int id;
+
+    @Column(name = "tipo_doc", nullable = false)
     private String tipoDoc;
+
+    @Column(name = "dni", nullable = false)
     private int dni;
+
+    @Column(name = "nombre", nullable = false)
     private String nombre;
+
+    @Column(name = "apellido", nullable = false)
     private String apellido;
-    private LocalDateTime fechaNac;
+
+    @Column(name = "fecha_nacimiento", nullable = false)
+    private LocalDate fechaNac;
 
     public Persona() {
 
     }
 
-    public Persona(String tipoDoc, int dni, String nombre, String apellido, LocalDateTime fechaNac) {
+    public Persona(String tipoDoc, int dni, String nombre, String apellido, LocalDate fechaNac) {
         this.tipoDoc = tipoDoc;
         this.dni = dni;
         this.nombre = nombre;
         this.apellido = apellido;
         this.fechaNac = fechaNac;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getTipoDoc() {
@@ -59,11 +78,11 @@ public class Persona {
         this.apellido = apellido;
     }
 
-    public LocalDateTime getFechaNac() {
+    public LocalDate getFechaNac() {
         return fechaNac;
     }
 
-    public void setFechaNac(LocalDateTime fechaNac) {
+    public void setFechaNac(LocalDate fechaNac) {
         this.fechaNac = fechaNac;
     }
 }

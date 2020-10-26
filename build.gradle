@@ -16,16 +16,16 @@ repositories {
 }
 
 dependencies {
-    implementation 'org.springframework.boot:spring-boot-starter-data-mongodb'
     implementation 'org.springframework.boot:spring-boot-starter-data-rest'
     implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
     implementation 'org.springframework.session:spring-session-core'
     implementation 'io.springfox:springfox-boot-starter:3.0.0'
+    implementation 'mysql:mysql-connector-java:8.0.21'
     testImplementation('org.springframework.boot:spring-boot-starter-test') {
         exclude group: 'org.junit.vintage', module: 'junit-vintage-engine'
     }
-    testImplementation 'de.flapdoodle.embed:de.flapdoodle.embed.mongo'
-}
+ }
 
 test {
     useJUnitPlatform()
