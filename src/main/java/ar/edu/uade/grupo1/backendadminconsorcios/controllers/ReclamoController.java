@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/reclamos")
+@RequestMapping(path = "/reclamos")
 public class ReclamoController {
     @Autowired
     ReclamoRepository reclamoRepository;

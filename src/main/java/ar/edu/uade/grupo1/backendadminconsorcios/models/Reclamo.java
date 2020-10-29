@@ -25,7 +25,7 @@ public class Reclamo {
     @Column(name = "estado", nullable = false, length = 50)
     private String estado; //NUEVO, EN CURSO, PENDIENTE APROBACION, RECHAZADO, FINALIZADO
 
-    @Column(name = "notas", nullable = false, length = 1000)
+    @Column(name = "notas", length = 1000)
     private String notas;
 
     @JoinColumn(name = "id_edificio")
@@ -41,7 +41,7 @@ public class Reclamo {
     private Viviente viviente;
 
     @JoinColumn(name = "id_inspector")
-    @ManyToOne(optional = false, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
     private Inspector inspector;
 
     @Lob

@@ -1,0 +1,33 @@
+{
+  "administrador": {
+    "apellido": "Elche",
+    "dni": 13456789,
+    "fechaNac": "1952-10-29",
+    "nombre": "Maria",
+    "tipoDoc": "DNI"
+  },
+
+  "altura": 777,
+  "barrio": "El Palomar",
+  "calle": "Carosella",
+  "codigoPostal": "1684",
+  "propiedades": [
+    {
+      "piso": 1,
+      "propietario": {
+        "id": 1
+      },
+      "unidad": "5B",
+      "vivientes": [
+        {
+          "apellido": "Monti",
+          "dni": 36826858,
+          "fechaNac": "1992-03-09",
+          "nombre": "Sebastian",
+          "tipoDoc": "DNI"
+        }
+      ]
+    }
+  ],
+  "provincia": "Buenos Aires"
+}

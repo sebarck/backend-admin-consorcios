@@ -26,7 +26,7 @@ public class Edificio {
     @Column(name = "codigo_postal", nullable = false)
     private String codigoPostal;
 
-    @OneToMany(mappedBy = "edificio", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "edificio", cascade = CascadeType.MERGE)
     private List<Propiedad> propiedades;
 
     @JoinColumn(name = "id_administrador")
@@ -34,7 +34,7 @@ public class Edificio {
     private Administrador administrador;
 
     @JoinColumn(name = "id_inspector")
-    @ManyToOne(optional = false, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private Inspector inspector;
 
     public Edificio() {
