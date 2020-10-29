@@ -30,11 +30,11 @@ public class Edificio {
     private List<Propiedad> propiedades;
 
     @JoinColumn(name = "id_administrador")
-    @ManyToOne(optional = false, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @ManyToOne(optional = false, cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
     private Administrador administrador;
 
     @JoinColumn(name = "id_inspector")
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
     private Inspector inspector;
 
     public Edificio() {
@@ -92,14 +92,6 @@ public class Edificio {
 
     public void setCodigoPostal(String codigoPostal) {
         this.codigoPostal = codigoPostal;
-    }
-
-    public List<Propiedad> getPropiedades() {
-        return propiedades;
-    }
-
-    public void setPropiedades(List<Propiedad> propiedades) {
-        this.propiedades = propiedades;
     }
 
     public Administrador getAdministrador() {
