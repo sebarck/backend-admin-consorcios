@@ -13,7 +13,7 @@ public class Administrador extends Persona {
     @Column(name = "id", unique = true)
     private int id;
 
-    @OneToMany(mappedBy = "administrador", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "administrador", cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
     private List<Edificio> edificios;
 
     public Administrador() {
@@ -27,9 +27,5 @@ public class Administrador extends Persona {
 
     public int getId() {
         return id;
-    }
-
-    public List<Edificio> getEdificios() {
-        return edificios;
     }
 }
