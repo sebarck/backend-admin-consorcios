@@ -8,23 +8,6 @@ import java.time.LocalDateTime;
 @Table(name = "reclamos")
 public class Reclamo {
 
-    public Reclamo() {
-
-    }
-
-    public Reclamo(String categoria, String titulo, String descripcion, String estado, Edificio edificio, Propietario propietario, Viviente viviente, Inspector inspector, byte[] evidencia, LocalDateTime fechaCreacion) {
-        this.categoria = categoria;
-        this.titulo = titulo;
-        this.descripcion = descripcion;
-        this.estado = estado;
-        this.edificio = edificio;
-        this.propietario = propietario;
-        this.viviente = viviente;
-        this.inspector = inspector;
-        this.evidencia = evidencia;
-        this.fechaCreacion = fechaCreacion;
-    }
-
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id", unique = true)
@@ -76,6 +59,23 @@ public class Reclamo {
 
     @Column(name = "fecha_resolucion")
     private LocalDate fechaResolucion;
+
+    public Reclamo() {
+
+    }
+
+    public Reclamo(String categoria, String titulo, String descripcion, String estado, Edificio edificio, Propietario propietario, Viviente viviente, Inspector inspector, byte[] evidencia, LocalDateTime fechaCreacion) {
+        this.categoria = categoria;
+        this.titulo = titulo;
+        this.descripcion = descripcion;
+        this.estado = estado;
+        this.edificio = edificio;
+        this.propietario = propietario;
+        this.viviente = viviente;
+        this.inspector = inspector;
+        this.evidencia = evidencia;
+        this.fechaCreacion = fechaCreacion;
+    }
 
     public int getId() {
         return id;
