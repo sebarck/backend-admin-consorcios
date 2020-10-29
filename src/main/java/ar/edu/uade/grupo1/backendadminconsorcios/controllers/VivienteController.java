@@ -3,7 +3,6 @@ package ar.edu.uade.grupo1.backendadminconsorcios.controllers;
 import ar.edu.uade.grupo1.backendadminconsorcios.models.Viviente;
 import ar.edu.uade.grupo1.backendadminconsorcios.repositories.VivienteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
 @RestController

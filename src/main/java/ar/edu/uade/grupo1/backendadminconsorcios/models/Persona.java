@@ -6,11 +6,6 @@ import java.time.LocalDate;
 @MappedSuperclass
 public class Persona {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id", unique = true)
-    private int id;
-
     @Column(name = "tipo_doc", nullable = false)
     private String tipoDoc;
 
@@ -36,14 +31,6 @@ public class Persona {
         this.nombre = nombre;
         this.apellido = apellido;
         this.fechaNac = fechaNac;
-    }
-
-    public int getId() {
-        return id;
-    }
-
-    public void setId(int id) {
-        this.id = id;
     }
 
     public String getTipoDoc() {

@@ -8,6 +8,11 @@ import java.util.List;
 @Table(name = "vivientes")
 public class Viviente extends Persona {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id", unique = true)
+    private int id;
+
     @JoinColumn(name = "id_propiedad")
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private Propiedad propiedad;
@@ -19,9 +24,14 @@ public class Viviente extends Persona {
 
     }
 
-    public Viviente(String tipoDoc, int dni, String nombre, String apellido, LocalDate fechaNac, Propiedad propiedad) {
+    public Viviente(String tipoDoc, int dni, String nombre, String apellido, LocalDate fechaNac, int id, Propiedad propiedad) {
         super(tipoDoc, dni, nombre, apellido, fechaNac);
+        this.id = id;
         this.propiedad = propiedad;
+    }
+
+    public int getId() {
+        return id;
     }
 
     public Propiedad getPropiedad() {
@@ -36,7 +46,4 @@ public class Viviente extends Persona {
         return reclamos;
     }
 
-    public void setReclamos(List<Reclamo> reclamos) {
-        this.reclamos = reclamos;
-    }
 }
