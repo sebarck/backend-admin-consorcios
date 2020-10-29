@@ -12,31 +12,30 @@ public class Propiedad {
     @Column(name = "id", unique = true)
     private int id;
 
-    @JoinColumn(name = "id_edificio", nullable = false)
-    @ManyToOne(optional = false, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    private Edificio edificio;
-
     @Column(name = "piso")
     private int piso;
 
     @Column(name = "unidad")
     private String unidad;
 
-    @OneToMany(mappedBy = "propiedad", cascade = CascadeType.MERGE)
-    private List<Viviente> vivientes;
+    @JoinColumn(name = "id_edificio", nullable = false)
+    @ManyToOne(optional = false, cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
+    private Edificio edificio;
 
     @JoinColumn(name = "id_propietario", nullable = false)
-    @ManyToOne(optional = false, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @ManyToOne(optional = false, cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
     private Propietario propietario;
+
+    @OneToMany(mappedBy = "propiedad", cascade = CascadeType.MERGE)
+    private List<Viviente> vivientes;
 
     public Propiedad() {
     }
 
-    public Propiedad(Edificio edificio, int piso, String unidad, List<Viviente> vivientes, Propietario propietario) {
+    public Propiedad(Edificio edificio, int piso, String unidad, Propietario propietario) {
         this.edificio = edificio;
         this.piso = piso;
         this.unidad = unidad;
-        this.vivientes = vivientes;
         this.propietario = propietario;
     }
 
@@ -66,14 +65,6 @@ public class Propiedad {
 
     public void setUnidad(String unidad) {
         this.unidad = unidad;
-    }
-
-    public List<Viviente> getVivientes() {
-        return vivientes;
-    }
-
-    public void setVivientes(List<Viviente> vivientes) {
-        this.vivientes = vivientes;
     }
 
     public Propietario getPropietario() {

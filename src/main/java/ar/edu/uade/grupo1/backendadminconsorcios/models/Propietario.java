@@ -32,11 +32,4 @@ public class Propietario extends Persona {
         return id;
     }
 
-    public List<Propiedad> getPropiedades() {
-        return propiedades;
-    }
-
-    public List<Reclamo> getReclamos() {
-        return reclamos;
-    }
 }
