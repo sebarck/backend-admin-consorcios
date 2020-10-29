@@ -19,9 +19,8 @@ public class Inspector extends Persona {
     @OneToMany(mappedBy = "inspector", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<Edificio> edificios;
 
-    public Inspector(int id, String especialidades) {
-        this.id = id;
-        this.especialidades = especialidades;
+    public Inspector() {
+
     }
 
     public Inspector(String tipoDoc, int dni, String nombre, String apellido, LocalDate fechaNac, int id, String especialidades) {

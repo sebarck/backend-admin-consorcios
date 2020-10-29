@@ -19,8 +19,8 @@ public class Propietario extends Persona {
     @OneToMany(mappedBy = "propietario", cascade = CascadeType.ALL)
     private List<Reclamo> reclamos;
 
-    public Propietario(int id) {
-        this.id = id;
+    public Propietario() {
+
     }
 
     public Propietario(String tipoDoc, int dni, String nombre, String apellido, LocalDate fechaNac, int id) {

@@ -16,8 +16,8 @@ public class Administrador extends Persona {
     @OneToMany(mappedBy = "administrador", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<Edificio> edificios;
 
-    public Administrador(int id) {
-        this.id = id;
+    public Administrador() {
+
     }
 
     public Administrador(String tipoDoc, int dni, String nombre, String apellido, LocalDate fechaNac, int id) {
