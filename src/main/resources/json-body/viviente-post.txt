@@ -1,0 +1,10 @@
+{
+  "apellido": "Dominici",
+  "dni": 38765499,
+  "fechaNac": "1992-10-31",
+  "nombre": "Rodrigo",
+  "tipoDoc": "DNI",
+  "propiedad": {
+      "id": 1
+  }
+}

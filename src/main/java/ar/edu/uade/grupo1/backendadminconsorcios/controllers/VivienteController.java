@@ -16,7 +16,7 @@ public class VivienteController {
         return vivienteRepository.findAll();
     }
 
-    @PostMapping(value = "/")
+    @PostMapping
     public Viviente addNewViviente(@RequestBody Viviente viviente) {
         vivienteRepository.save(viviente);
         return viviente;

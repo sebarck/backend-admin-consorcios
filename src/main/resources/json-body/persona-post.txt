@@ -2,7 +2,6 @@
   "apellido": "Monti",
   "dni": 36826858,
   "fechaNac": "2020-11-06",
-  "id": 0,
   "nombre": "Sebastian",
   "tipoDoc": "DNI"
 }
@@ -14,3 +13,4 @@
   "nombre": "Jose",
   "tipoDoc": "DNI"
 }
+

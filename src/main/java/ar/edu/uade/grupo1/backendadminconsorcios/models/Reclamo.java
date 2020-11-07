@@ -29,15 +29,15 @@ public class Reclamo {
     private String notas;
 
     @JoinColumn(name = "id_edificio")
-    @ManyToOne(optional = false, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @ManyToOne(optional = false, cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
     private Edificio edificio;
 
-    @JoinColumn(name = "id_propietario", nullable = false)
-    @ManyToOne(optional = false, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
-    private Propietario propietario;
+    @JoinColumn(name = "id_propiedad")
+    @ManyToOne(optional = false, cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
+    private Propiedad propiedad;
 
     @JoinColumn(name = "id_viviente", nullable = false)
-    @ManyToOne(optional = false, cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @ManyToOne(optional = false, cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
     private Viviente viviente;
 
     @JoinColumn(name = "id_inspector")
@@ -64,13 +64,13 @@ public class Reclamo {
 
     }
 
-    public Reclamo(String categoria, String titulo, String descripcion, String estado, Edificio edificio, Propietario propietario, Viviente viviente, Inspector inspector, byte[] evidencia, LocalDateTime fechaCreacion) {
+    public Reclamo(String categoria, String titulo, String descripcion, String estado, Edificio edificio, Propiedad propiedad , Viviente viviente, Inspector inspector, byte[] evidencia, LocalDateTime fechaCreacion) {
         this.categoria = categoria;
         this.titulo = titulo;
         this.descripcion = descripcion;
         this.estado = estado;
         this.edificio = edificio;
-        this.propietario = propietario;
+        this.propiedad = propiedad;
         this.viviente = viviente;
         this.inspector = inspector;
         this.evidencia = evidencia;
@@ -129,13 +129,9 @@ public class Reclamo {
         this.edificio = edificio;
     }
 
-    public Propietario getPropietario() {
-        return propietario;
-    }
+    public Propiedad getPropiedad() { return propiedad; }
 
-    public void setPropietario(Propietario propietario) {
-        this.propietario = propietario;
-    }
+    public void setPropiedad(Propiedad propiedad) { this.propiedad = propiedad; }
 
     public Viviente getViviente() {
         return viviente;

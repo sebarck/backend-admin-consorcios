@@ -16,7 +16,7 @@ public class AdministradorController {
         return administradorRepository.findAll();
     }
 
-    @PostMapping(value = "/")
+    @PostMapping
     public Administrador addNewAdministrador(@RequestBody Administrador administrador) {
         administradorRepository.save(administrador);
         return administrador;

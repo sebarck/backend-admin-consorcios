@@ -16,9 +16,6 @@ public class Propietario extends Persona {
     @OneToMany(mappedBy = "propietario", cascade = CascadeType.ALL)
     private List<Propiedad> propiedades;
 
-    @OneToMany(mappedBy = "propietario", cascade = CascadeType.ALL)
-    private List<Reclamo> reclamos;
-
     public Propietario() {
 
     }

@@ -1,0 +1,10 @@
+{
+  "edificio": {
+    "id": 1
+  },
+  "piso": 4,
+  "propietario": {
+    "id": 1
+  },
+  "unidad": "12"
+}

@@ -16,7 +16,7 @@ public class PropietarioController {
         return propietarioRepository.findAll();
     }
 
-    @PostMapping(value = "/")
+    @PostMapping
     public Propietario addNewPropietario(@RequestBody Propietario propietario) {
         propietarioRepository.save(propietario);
         return propietario;

@@ -14,10 +14,10 @@ public class Viviente extends Persona {
     private int id;
 
     @JoinColumn(name = "id_propiedad")
-    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
     private Propiedad propiedad;
 
-    @OneToMany(mappedBy = "viviente", fetch = FetchType.EAGER, cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "viviente", fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
     private List<Reclamo> reclamos;
 
     public Viviente() {
@@ -40,10 +40,6 @@ public class Viviente extends Persona {
 
     public void setPropiedad(Propiedad propiedad) {
         this.propiedad = propiedad;
-    }
-
-    public List<Reclamo> getReclamos() {
-        return reclamos;
     }
 
 }
