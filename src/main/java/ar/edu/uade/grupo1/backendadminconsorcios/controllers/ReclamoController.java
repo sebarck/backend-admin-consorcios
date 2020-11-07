@@ -5,6 +5,8 @@ import ar.edu.uade.grupo1.backendadminconsorcios.repositories.ReclamoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDateTime;
+
 @RestController
 @RequestMapping(path = "/reclamos")
 public class ReclamoController {
@@ -18,6 +20,8 @@ public class ReclamoController {
 
     @PostMapping
     public Reclamo addNewReclamo(@RequestBody Reclamo reclamo) {
+        reclamo.setEstado("NUEVO");
+        reclamo.setFechaCreacion(LocalDateTime.now());
         reclamoRepository.save(reclamo);
         return reclamo;
     }

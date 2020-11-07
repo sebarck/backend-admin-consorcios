@@ -8,11 +8,6 @@
   "propiedad": {
     "id": 1
   },
-  "estado": "NUEVO",
-  "fechaCreacion": "2020-11-07T14:58:57.626Z",
-  "propietario": {
-    "id": 1
-  },
   "viviente": {
     "id": 1
   }
