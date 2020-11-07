@@ -16,7 +16,7 @@ public class PropiedadController {
         return propiedadRepository.findAll();
     }
 
-    @PostMapping(value = "/")
+    @PostMapping
     public Propiedad addNewPropiedad(@RequestBody Propiedad propiedad) {
         propiedadRepository.save(propiedad);
         return propiedad;

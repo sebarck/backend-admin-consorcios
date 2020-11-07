@@ -16,7 +16,7 @@ public class ReclamoController {
         return reclamoRepository.findAll();
     }
 
-    @PostMapping(value = "/")
+    @PostMapping
     public Reclamo addNewReclamo(@RequestBody Reclamo reclamo) {
         reclamoRepository.save(reclamo);
         return reclamo;

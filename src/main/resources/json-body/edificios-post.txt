@@ -1,6 +1,6 @@
 {
   "administrador": {
-    "id": 2
+    "id": 1
   },
   "altura": 779,
   "barrio": "El Palomar",

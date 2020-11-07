@@ -16,7 +16,7 @@ public class EdificioController {
         return edificioRepository.findAll();
     }
 
-    @PostMapping(value = "/")
+    @PostMapping
     public Edificio addNewEdificio(@RequestBody Edificio edificio) {
         edificioRepository.save(edificio);
         return edificio;
