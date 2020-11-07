@@ -1,0 +1,16 @@
+{
+  "apellido": "Monti",
+  "dni": 36826858,
+  "fechaNac": "2020-11-06",
+  "id": 0,
+  "nombre": "Sebastian",
+  "tipoDoc": "DNI"
+}
+
+{
+  "apellido": "Gonzalez",
+  "dni": 37890765,
+  "fechaNac": "1995-03-09",
+  "nombre": "Jose",
+  "tipoDoc": "DNI"
+}
