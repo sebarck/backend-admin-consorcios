@@ -25,4 +25,11 @@ public class ReclamoController {
         reclamoRepository.save(reclamo);
         return reclamo;
     }
+
+    @GetMapping(path = "/viviente/{id}")
+    public Iterable<Reclamo> findReclamosByIdViviente(@PathVariable(name = "id") int id) {
+        return reclamoRepository.findReclamosByVivienteId(id);
+    }
+
+
 }
