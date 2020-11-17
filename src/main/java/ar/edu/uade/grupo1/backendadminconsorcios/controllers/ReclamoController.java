@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDateTime;
+import java.util.List;
 
 @RestController
 @RequestMapping(path = "/reclamos")
@@ -16,6 +17,11 @@ public class ReclamoController {
     @GetMapping
     public Iterable<Reclamo> getAllReclamos() {
         return reclamoRepository.findAll();
+    }
+
+    @GetMapping(path = "/{id}")
+    public List<Reclamo> findReclamosById(@PathVariable(name = "id") int id) {
+        return reclamoRepository.findReclamosById(id);
     }
 
     @PostMapping
@@ -30,6 +36,5 @@ public class ReclamoController {
     public Iterable<Reclamo> findReclamosByIdViviente(@PathVariable(name = "id") int id) {
         return reclamoRepository.findReclamosByVivienteId(id);
     }
-
 
 }
