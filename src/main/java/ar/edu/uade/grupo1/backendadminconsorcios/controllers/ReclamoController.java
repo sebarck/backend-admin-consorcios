@@ -20,7 +20,7 @@ public class ReclamoController {
     }
 
     @GetMapping(path = "/{id}")
-    public List<Reclamo> findReclamosById(@PathVariable(name = "id") int id) {
+    public Reclamo findReclamosById(@PathVariable(name = "id") int id) {
         return reclamoRepository.findReclamosById(id);
     }
 
@@ -33,7 +33,7 @@ public class ReclamoController {
     }
 
     @GetMapping(path = "/viviente/{id}")
-    public Iterable<Reclamo> findReclamosByIdViviente(@PathVariable(name = "id") int id) {
+    public List<Reclamo> findReclamosByIdViviente(@PathVariable(name = "id") int id) {
         return reclamoRepository.findReclamosByVivienteId(id);
     }
 
