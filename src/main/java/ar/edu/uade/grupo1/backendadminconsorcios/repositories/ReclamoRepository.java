@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface ReclamoRepository extends CrudRepository <Reclamo, Integer> {
 
-    List<Reclamo> findReclamosById(int idReclamo);
+    Reclamo findReclamosById(int idReclamo);
 
-    Iterable<Reclamo> findReclamosByVivienteId(int idViviente);
+    List<Reclamo> findReclamosByVivienteId(int idViviente);
 }
