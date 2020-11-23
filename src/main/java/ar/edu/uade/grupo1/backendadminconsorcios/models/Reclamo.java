@@ -3,6 +3,7 @@ package ar.edu.uade.grupo1.backendadminconsorcios.models;
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 @Table(name = "reclamos")
@@ -46,7 +47,7 @@ public class Reclamo {
 
     @Lob
     @Column(name = "evidencia", columnDefinition = "LONGBLOB")
-    private byte[] evidencia; //Ver si lo guardamos aca o no
+    private List<String> evidencia; //Ver si lo guardamos aca o no
 
     @Column(name = "fecha_creacion", nullable = false)
     private LocalDateTime fechaCreacion;
@@ -64,7 +65,7 @@ public class Reclamo {
 
     }
 
-    public Reclamo(String categoria, String titulo, String descripcion, String estado, Edificio edificio, Propiedad propiedad , Viviente viviente, Inspector inspector, byte[] evidencia, LocalDateTime fechaCreacion) {
+    public Reclamo(String categoria, String titulo, String descripcion, String estado, Edificio edificio, Propiedad propiedad , Viviente viviente, Inspector inspector, List<String> evidencia, LocalDateTime fechaCreacion) {
         this.categoria = categoria;
         this.titulo = titulo;
         this.descripcion = descripcion;
@@ -149,11 +150,11 @@ public class Reclamo {
         this.inspector = inspector;
     }
 
-    public byte[] getEvidencia() {
+    public List<String> getEvidencia() {
         return evidencia;
     }
 
-    public void setEvidencia(byte[] evidencia) {
+    public void setEvidencia(List<String> evidencia) {
         this.evidencia = evidencia;
     }
 
