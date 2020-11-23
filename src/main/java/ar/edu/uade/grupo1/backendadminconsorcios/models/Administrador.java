@@ -16,6 +16,10 @@ public class Administrador extends Persona {
     @OneToMany(mappedBy = "administrador", cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
     private List<Edificio> edificios;
 
+    @OneToOne
+    @JoinColumn(name = "id_usuario", referencedColumnName = "id")
+    private Usuario usuario;
+
     public Administrador() {
 
     }

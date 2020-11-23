@@ -32,6 +32,30 @@ public class ReclamoController {
         return reclamo;
     }
 
+    @PostMapping(path = "/aprobaciones/{id}")
+    public Reclamo approveReclamo(@PathVariable(name = "id") int id) {
+        Reclamo reclamo = reclamoRepository.findReclamosById(id);
+        reclamo.setEstado("APROBADO");
+        reclamoRepository.save(reclamo);
+        return reclamo;
+    }
+
+    @PostMapping(path = "/rechazos/{id}")
+    public Reclamo rejectReclamo(@PathVariable(name = "id") int id) {
+        Reclamo reclamo = reclamoRepository.findReclamosById(id);
+        reclamo.setEstado("RECHAZADO");
+        reclamoRepository.save(reclamo);
+        return reclamo;
+    }
+
+    @PostMapping(path = "/inspecciones/{id}")
+    public Reclamo inspectReclamo(@PathVariable(name = "id") int id) {
+        Reclamo reclamo = reclamoRepository.findReclamosById(id);
+        reclamo.setEstado("PENDIENTE APROBACION");
+        reclamoRepository.save(reclamo);
+        return reclamo;
+    }
+
     @GetMapping(path = "/viviente/{id}")
     public List<Reclamo> findReclamosByIdViviente(@PathVariable(name = "id") int id) {
         return reclamoRepository.findReclamosByVivienteId(id);

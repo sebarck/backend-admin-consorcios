@@ -46,7 +46,7 @@ public class Reclamo {
 
     @Lob
     @Column(name = "evidencia", columnDefinition = "LONGBLOB")
-    private byte[] evidencia; //Ver si lo guardamos aca o no
+    private byte[] evidencia;
 
     @Column(name = "fecha_creacion", nullable = false)
     private LocalDateTime fechaCreacion;

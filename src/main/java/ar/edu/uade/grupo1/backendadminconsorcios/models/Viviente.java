@@ -20,6 +20,10 @@ public class Viviente extends Persona {
     @OneToMany(mappedBy = "viviente", fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
     private List<Reclamo> reclamos;
 
+    @OneToOne
+    @JoinColumn(name = "id_usuario", referencedColumnName = "id")
+    private Usuario usuario;
+
     public Viviente() {
 
     }

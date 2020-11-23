@@ -19,6 +19,10 @@ public class Inspector extends Persona {
     @OneToMany(mappedBy = "inspector", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private List<Edificio> edificios;
 
+    @OneToOne
+    @JoinColumn(name = "id_usuario", referencedColumnName = "id")
+    private Usuario usuario;
+
     public Inspector() {
 
     }
