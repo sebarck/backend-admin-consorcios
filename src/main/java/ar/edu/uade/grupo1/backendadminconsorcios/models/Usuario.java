@@ -31,8 +31,8 @@ public class Usuario {
 //    @OneToOne(mappedBy = "usuario", fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
 //    private Viviente viviente;
 //
-//    @OneToOne(mappedBy = "usuario", fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
-//    private Administrador administrador;
+    @OneToOne(mappedBy = "usuario", fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
+    private Administrador administrador;
 //
 //    @OneToOne(mappedBy = "usuario", fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
 //    private Inspector inspector;
@@ -82,5 +82,13 @@ public class Usuario {
 
     public void setEstado(boolean estado) {
         this.estado = estado;
+    }
+
+    public Administrador getAdministrador() {
+        return administrador;
+    }
+
+    public void setAdministrador(Administrador administrador) {
+        this.administrador = administrador;
     }
 }
