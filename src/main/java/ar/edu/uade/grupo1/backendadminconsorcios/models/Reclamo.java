@@ -3,6 +3,7 @@ package ar.edu.uade.grupo1.backendadminconsorcios.models;
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.List;
 
 @Entity
 @Table(name = "reclamos")
@@ -44,9 +45,8 @@ public class Reclamo {
     @ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
     private Inspector inspector;
 
-    @Lob
-    @Column(name = "evidencia", columnDefinition = "LONGBLOB")
-    private byte[] evidencia;
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    private List<Evidencia> evidencias;
 
     @Column(name = "fecha_creacion", nullable = false)
     private LocalDateTime fechaCreacion;
@@ -64,7 +64,7 @@ public class Reclamo {
 
     }
 
-    public Reclamo(String categoria, String titulo, String descripcion, String estado, Edificio edificio, Propiedad propiedad , Viviente viviente, Inspector inspector, byte[] evidencia, LocalDateTime fechaCreacion) {
+    public Reclamo(String categoria, String titulo, String descripcion, String estado, Edificio edificio, Propiedad propiedad, Viviente viviente, Inspector inspector, List<Evidencia> evidencias, LocalDateTime fechaCreacion) {
         this.categoria = categoria;
         this.titulo = titulo;
         this.descripcion = descripcion;
@@ -73,7 +73,7 @@ public class Reclamo {
         this.propiedad = propiedad;
         this.viviente = viviente;
         this.inspector = inspector;
-        this.evidencia = evidencia;
+        this.evidencias = evidencias;
         this.fechaCreacion = fechaCreacion;
     }
 
@@ -129,9 +129,13 @@ public class Reclamo {
         this.edificio = edificio;
     }
 
-    public Propiedad getPropiedad() { return propiedad; }
+    public Propiedad getPropiedad() {
+        return propiedad;
+    }
 
-    public void setPropiedad(Propiedad propiedad) { this.propiedad = propiedad; }
+    public void setPropiedad(Propiedad propiedad) {
+        this.propiedad = propiedad;
+    }
 
     public Viviente getViviente() {
         return viviente;
@@ -149,12 +153,12 @@ public class Reclamo {
         this.inspector = inspector;
     }
 
-    public byte[] getEvidencia() {
-        return evidencia;
+    public List<Evidencia> getevidencias() {
+        return evidencias;
     }
 
-    public void setEvidencia(byte[] evidencia) {
-        this.evidencia = evidencia;
+    public void setevidencias(List<Evidencia> evidencias) {
+        this.evidencias = evidencias;
     }
 
     public LocalDateTime getFechaCreacion() {
@@ -188,4 +192,5 @@ public class Reclamo {
     public void setFechaResolucion(LocalDate fechaResolucion) {
         this.fechaResolucion = fechaResolucion;
     }
+
 }
