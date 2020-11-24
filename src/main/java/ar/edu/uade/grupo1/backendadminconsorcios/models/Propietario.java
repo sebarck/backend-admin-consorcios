@@ -16,6 +16,10 @@ public class Propietario extends Persona {
     @OneToMany(mappedBy = "propietario", cascade = CascadeType.ALL)
     private List<Propiedad> propiedades;
 
+    @OneToOne
+    @JoinColumn(name = "id_usuario", referencedColumnName = "id")
+    private Usuario usuario;
+
     public Propietario() {
 
     }
