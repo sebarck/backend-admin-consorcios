@@ -5,10 +5,17 @@ import ar.edu.uade.grupo1.backendadminconsorcios.models.Viviente;
 import org.springframework.data.repository.CrudRepository;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface ReclamoRepository extends CrudRepository <Reclamo, Integer> {
 
     Reclamo findReclamosById(int idReclamo);
 
     List<Reclamo> findReclamosByVivienteId(int idViviente);
+
+    List<Reclamo> findReclamosByVivienteIdAndEstado(int idViviente, Optional<String> estado);
+
+    List<Reclamo> findReclamosByEdificioId(int idEdificio);
+
+    List<Reclamo> findReclamosByEdificioIdAndEstado(int idEdificio, Optional<String> estado);
 }

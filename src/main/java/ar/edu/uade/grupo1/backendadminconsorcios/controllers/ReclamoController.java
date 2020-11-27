@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping(path = "/reclamos")
@@ -32,33 +33,57 @@ public class ReclamoController {
         return reclamo;
     }
 
-    @PostMapping(path = "/aprobaciones/{id}")
-    public Reclamo approveReclamo(@PathVariable(name = "id") int id) {
+    @PostMapping(path = "/aprobaciones/{idReclamo}")
+    public Reclamo approveReclamo(@PathVariable(name = "idReclamo") int id, @RequestBody Reclamo newReclamo) {
         Reclamo reclamo = reclamoRepository.findReclamosById(id);
+        reclamo.setNotas(newReclamo.getNotas());
         reclamo.setEstado("APROBADO");
         reclamoRepository.save(reclamo);
         return reclamo;
     }
 
-    @PostMapping(path = "/rechazos/{id}")
-    public Reclamo rejectReclamo(@PathVariable(name = "id") int id) {
+    @PostMapping(path = "/rechazos/{idReclamo}")
+    public Reclamo rejectReclamo(@PathVariable(name = "idReclamo") int id, @RequestBody Reclamo newReclamo) {
         Reclamo reclamo = reclamoRepository.findReclamosById(id);
+        reclamo.setNotas(newReclamo.getNotas());
         reclamo.setEstado("RECHAZADO");
         reclamoRepository.save(reclamo);
         return reclamo;
     }
 
-    @PostMapping(path = "/inspecciones/{id}")
-    public Reclamo inspectReclamo(@PathVariable(name = "id") int id) {
+    @PostMapping(path = "/inspecciones/{idReclamo}")
+    public Reclamo inspectReclamo(@PathVariable(name = "idReclamo") int id, @RequestBody Reclamo newReclamo) {
         Reclamo reclamo = reclamoRepository.findReclamosById(id);
-        reclamo.setEstado("PENDIENTE APROBACION");
+        reclamo.setevidencias(newReclamo.getevidencias());
+        reclamo.setNotas(newReclamo.getNotas());
+        reclamo.setEstado("VALIDADO");
         reclamoRepository.save(reclamo);
         return reclamo;
     }
 
-    @GetMapping(path = "/viviente/{id}")
-    public List<Reclamo> findReclamosByIdViviente(@PathVariable(name = "id") int id) {
-        return reclamoRepository.findReclamosByVivienteId(id);
+    @GetMapping(path = "/viviente/{idViviente}")
+    public List<Reclamo> findReclamosByIdViviente(
+            @PathVariable(name = "idViviente") int id,
+            @RequestParam (required = false) Optional<String> estado
+    ) {
+        if (estado.isPresent()) {
+            return reclamoRepository.findReclamosByVivienteIdAndEstado(id, estado);
+        } else {
+            return reclamoRepository.findReclamosByVivienteId(id);
+        }
     }
+
+    @GetMapping(path = "/administrador/{idEdificio}")
+    public List<Reclamo> findReclamosByIdAdministrador(
+            @PathVariable(name = "idEdificio") int idEdificio,
+            @RequestParam (required = false) Optional<String> estado
+    ) {
+        if (estado.isPresent()) {
+            return reclamoRepository.findReclamosByEdificioIdAndEstado(idEdificio, estado);
+        } else {
+            return reclamoRepository.findReclamosByEdificioId(idEdificio);
+        }
+    }
+
 
 }
