@@ -17,9 +17,6 @@ public class Viviente extends Persona {
     @ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
     private Propiedad propiedad;
 
-    @OneToMany(mappedBy = "viviente", fetch = FetchType.EAGER, cascade = CascadeType.MERGE)
-    private List<Reclamo> reclamos;
-
     @OneToOne
     @JoinColumn(name = "id_usuario", referencedColumnName = "id")
     private Usuario usuario;
