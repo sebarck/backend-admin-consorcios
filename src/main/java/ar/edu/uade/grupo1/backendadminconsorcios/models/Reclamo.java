@@ -137,16 +137,8 @@ public class Reclamo {
         this.propiedad = propiedad;
     }
 
-    public Viviente getViviente() {
-        return viviente;
-    }
-
     public void setViviente(Viviente viviente) {
         this.viviente = viviente;
-    }
-
-    public Inspector getInspector() {
-        return inspector;
     }
 
     public void setInspector(Inspector inspector) {
