@@ -32,4 +32,8 @@ public class Administrador extends Persona {
     public int getId() {
         return id;
     }
+
+    public List<Edificio> getEdificios() {
+        return edificios;
+    }
 }

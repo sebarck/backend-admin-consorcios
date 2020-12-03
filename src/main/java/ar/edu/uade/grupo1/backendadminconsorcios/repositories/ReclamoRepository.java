@@ -15,9 +15,9 @@ public interface ReclamoRepository extends CrudRepository <Reclamo, Integer> {
 
     List<Reclamo> findReclamosByVivienteIdAndEstado(int idViviente, Optional<String> estado);
 
-    List<Reclamo> findReclamosByAdministradorId(int idAdministrador);
+    List<Reclamo> findReclamosByEdificioId(int idEdificio);
 
-    List<Reclamo> findReclamosByAdministradorIdAndEstado(int idAdministrador, Optional<String> estado);
+    List<Reclamo> findReclamosByEdificioIdAndEstado(int idEdificio, Optional<String> estado);
 
     List<Reclamo> findReclamosByInspectorId(int idInspector);
 
