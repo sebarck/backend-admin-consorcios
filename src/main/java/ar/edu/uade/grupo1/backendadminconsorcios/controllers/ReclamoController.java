@@ -73,17 +73,30 @@ public class ReclamoController {
         }
     }
 
-    @GetMapping(path = "/administrador/{idEdificio}")
+    @GetMapping(path = "/administrador/{idAdministrador}")
     public List<Reclamo> findReclamosByIdAdministrador(
-            @PathVariable(name = "idEdificio") int idEdificio,
+            @PathVariable(name = "idAdministrador") int idAdministrador,
             @RequestParam (required = false) Optional<String> estado
     ) {
         if (estado.isPresent()) {
-            return reclamoRepository.findReclamosByEdificioIdAndEstado(idEdificio, estado);
+            return reclamoRepository.findReclamosByAdministradorIdAndEstado(idAdministrador, estado);
         } else {
-            return reclamoRepository.findReclamosByEdificioId(idEdificio);
+            return reclamoRepository.findReclamosByAdministradorId(idAdministrador);
         }
     }
+
+    @GetMapping(path = "/inspector/{idInspector}")
+    public List<Reclamo> findReclamosByIdInspector(
+            @PathVariable(name = "idInspector") int idInspector,
+            @RequestParam (required = false) Optional<String> estado
+    ) {
+        if (estado.isPresent()) {
+            return reclamoRepository.findReclamosByInspectorIdAndEstado(idInspector, estado);
+        } else {
+            return reclamoRepository.findReclamosByInspectorId(idInspector);
+        }
+    }
+
 
 
 }
