@@ -2,6 +2,7 @@ package ar.edu.uade.grupo1.backendadminconsorcios.controllers;
 
 import ar.edu.uade.grupo1.backendadminconsorcios.models.Usuario;
 import ar.edu.uade.grupo1.backendadminconsorcios.repositories.AdministradorRepository;
+import ar.edu.uade.grupo1.backendadminconsorcios.repositories.InspectorRepository;
 import ar.edu.uade.grupo1.backendadminconsorcios.repositories.UsuarioRepository;
 import ar.edu.uade.grupo1.backendadminconsorcios.repositories.VivienteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +21,9 @@ public class UsuarioController {
     @Autowired
     VivienteRepository vivienteRepository;
 
+    @Autowired
+    InspectorRepository inspectorRepository;
+
     @GetMapping(path = "/{username}")
     public Usuario getPersonaByUsername(
             @PathVariable(name = "username") String username
@@ -34,7 +38,7 @@ public class UsuarioController {
                 user.setViviente(vivienteRepository.findVivienteByUsuarioId(user.getId()));
                 break;
             case "INSPECTOR":
-                System.out.println("Inspector");
+                user.setInspector(inspectorRepository.findInspectorByUsuarioId(user.getId()));
                 break;
             default:
                 System.out.println("No se matcheo con ningun rol");
