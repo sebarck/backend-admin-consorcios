@@ -37,6 +37,7 @@ public class ReclamoController {
     public Reclamo approveReclamo(@PathVariable(name = "idReclamo") int id, @RequestBody Reclamo newReclamo) {
         Reclamo reclamo = reclamoRepository.findReclamosById(id);
         reclamo.setNotas(newReclamo.getNotas());
+        reclamo.setFechaResolucion(newReclamo.getFechaResolucion());
         reclamo.setEstado("APROBADO");
         reclamoRepository.save(reclamo);
         return reclamo;
