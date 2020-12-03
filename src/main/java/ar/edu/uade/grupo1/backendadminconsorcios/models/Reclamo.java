@@ -34,7 +34,7 @@ public class Reclamo {
     private Edificio edificio;
 
     @JoinColumn(name = "id_propiedad")
-    @ManyToOne(optional = false, cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
+    @ManyToOne(cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
     private Propiedad propiedad;
 
     @JoinColumn(name = "id_viviente", nullable = false)
