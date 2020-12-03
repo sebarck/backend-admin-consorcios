@@ -16,8 +16,8 @@ public class Inspector extends Persona {
     @Column(name = "especialidades")
     private String especialidades;
 
-    @OneToMany(mappedBy = "inspector", cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
-    private List<Edificio> edificios;
+//    @OneToMany(mappedBy = "inspector", cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
+//    private List<Edificio> edificios;
 
     @OneToOne
     @JoinColumn(name = "id_usuario", referencedColumnName = "id")
@@ -37,9 +37,9 @@ public class Inspector extends Persona {
         return id;
     }
 
-    public List<Edificio> getEdificios() {
-        return edificios;
-    }
+//    public List<Edificio> getEdificios() {
+//        return edificios;
+//    }
 
     public String getEspecialidades() {
         return especialidades;
