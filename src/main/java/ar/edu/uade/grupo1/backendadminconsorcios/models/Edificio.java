@@ -94,16 +94,8 @@ public class Edificio {
         this.codigoPostal = codigoPostal;
     }
 
-    public Administrador getAdministrador() {
-        return administrador;
-    }
-
     public void setAdministrador(Administrador administrador) {
         this.administrador = administrador;
-    }
-
-    public Inspector getInspector() {
-        return inspector;
     }
 
     public void setInspector(Inspector inspector) {
