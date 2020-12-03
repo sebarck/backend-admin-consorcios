@@ -16,7 +16,7 @@ public class Inspector extends Persona {
     @Column(name = "especialidades")
     private String especialidades;
 
-    @OneToMany(mappedBy = "inspector", cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @OneToMany(mappedBy = "inspector", cascade = CascadeType.MERGE, fetch = FetchType.EAGER)
     private List<Edificio> edificios;
 
     @OneToOne
